@@ -5,14 +5,14 @@ from utils import generate_easy_board
 
 class PuzzleGUI:
     def __init__(self, root):
-        self.root = root
-        self.root.title("15-Puzzle Solver")
-        self.root.configure(bg='black')
+        self.root = root # The main Tkinter application window.
+        self.root.title("15-Puzzle Solver") # Sets the title of the window to "15-Puzzle Solver."
+        self.root.configure(bg='black') # Configures the background color of the main window to black.
 
-        self.grid_frame = tk.Frame(root, bg='black')
-        self.grid_frame.pack(pady=20)
+        self.grid_frame = tk.Frame(root, bg='black') # A frame to display the 4x4 puzzle grid.
+        self.grid_frame.pack(pady=20) 
 
-        self.control_frame = tk.Frame(root, bg='black')
+        self.control_frame = tk.Frame(root, bg='black') # frame to hold buttons for user actions (e.g., "Generate Puzzle" and "Solve").
         self.control_frame.pack(pady=10)
 
         self.current_board = generate_easy_board(30)
@@ -20,8 +20,8 @@ class PuzzleGUI:
         self.solution_path = []
         self.current_step = 0
 
-        self.create_widgets()
-        self.update_grid()
+        self.create_widgets() #  Sets up the puzzle grid and control buttons.
+        self.update_grid() # Populates the grid with the initial puzzle state.
 
     def create_widgets(self):
         for i in range(4):
